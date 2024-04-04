@@ -2,3 +2,4 @@
 *.csv
 *.pcapng
 *__pycache__
+*.png
