@@ -19,7 +19,7 @@ def to_device(data, device):
         return [to_device(x, device) for x in data]
     return data.to(device, non_blocking=True)
     
-def plot_history(history):
+def plot_history(history, store_path = ''):
     losses1 = [x['val_loss1'] for x in history]
     losses2 = [x['val_loss2'] for x in history]
     plt.plot(losses1, '-x', label="loss1")
@@ -31,7 +31,7 @@ def plot_history(history):
     plt.grid()
     plt.show()
     
-def histogram(y_test,y_pred):
+def histogram(y_test,y_pred, store_path = ''):
     plt.figure(figsize=(12,6))
     plt.hist([y_pred[y_test==0],
               y_pred[y_test==1]],
@@ -56,7 +56,7 @@ def ROC(y_test,y_pred):
     plt.show()
     return tr[idx]
     
-def confusion_matrix(target, predicted, perc=False):
+def confusion_matrix(target, predicted, perc=False, store_path = ''):
 
     data = {'y_Actual':    target,
             'y_Predicted': predicted
